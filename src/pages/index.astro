@@ -40,10 +40,165 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <!-- Hero Section -->
-    <section class="hero py-[200px] lg:pt-[160px] pb-[120px] overflow-hidden bg-hero-gradient bg-honeycomb bg-fixed">
+    <section class="hero relative py-[200px] lg:pt-[160px] pb-[120px] overflow-hidden bg-hero-gradient ">
+        
+        <!-- Decorative Canvas Background -->
+        <canvas id="hero-hex-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80" aria-hidden="true"></canvas>
+        <!-- Gradient overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent pointer-events-none z-[1]"></div>
+        
+                <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const canvas = document.getElementById('hero-hex-canvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                
+                // Config
+                const PARTICLES = window.innerWidth < 768 ? 30 : 85;
+                const LINK_DISTANCE = window.innerWidth < 768 ? 120 : 200;
+                const MOUSE_RADIUS = 280;
+                
+                let width, height;
+                let particles = [];
+                let mouse = { x: -1000, y: -1000, active: false };
+
+                function init() {
+                    width = canvas.width = canvas.parentElement.offsetWidth;
+                    height = canvas.height = canvas.parentElement.offsetHeight;
+                    
+                    particles = [];
+                    for (let i = 0; i < PARTICLES; i++) {
+                        particles.push({
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            vx: (Math.random() - 0.5) * 0.4,
+                            vy: (Math.random() - 0.5) * 0.4,
+                            size: 4 + Math.random() * 8,
+                            rot: Math.random() * Math.PI * 2,
+                            rotSpeed: (Math.random() - 0.5) * 0.02,
+                            opacity: 0.15 + Math.random() * 0.35
+                        });
+                    }
+                }
+
+                function drawHexagon(x, y, r, rot, fill, stroke) {
+                    ctx.beginPath();
+                    for (let i = 0; i < 6; i++) {
+                        const angle = Math.PI / 3 * i + rot;
+                        const hx = x + r * Math.cos(angle);
+                        const hy = y + r * Math.sin(angle);
+                        if (i === 0) ctx.moveTo(hx, hy);
+                        else ctx.lineTo(hx, hy);
+                    }
+                    ctx.closePath();
+                    if (stroke) {
+                        ctx.strokeStyle = stroke;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                    if (fill) {
+                        ctx.fillStyle = fill;
+                        ctx.fill();
+                    }
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, width, height);
+                    
+                    // Update particles
+                    particles.forEach(p => {
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.rot += p.rotSpeed;
+                        
+                        // Wrap around edges for a continuous flowing effect
+                        if (p.x < -20) p.x = width + 20;
+                        if (p.x > width + 20) p.x = -20;
+                        if (p.y < -20) p.y = height + 20;
+                        if (p.y > height + 20) p.y = -20;
+                    });
+                    
+                    // Draw links
+                    ctx.lineWidth = 0.5;
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx*dx + dy*dy);
+                            
+                            if (dist < LINK_DISTANCE) {
+                                const opacity = (1 - dist/LINK_DISTANCE) * 0.15;
+                                ctx.strokeStyle = `rgba(217, 119, 6, ${opacity})`;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    
+                    // Draw mouse links
+                    if (mouse.active) {
+                        ctx.lineWidth = 1;
+                        for (let p of particles) {
+                            const dx = mouse.x - p.x;
+                            const dy = mouse.y - p.y;
+                            const dist = Math.sqrt(dx*dx + dy*dy);
+                            if (dist < MOUSE_RADIUS) {
+                                const opacity = (1 - dist/MOUSE_RADIUS) * 0.4;
+                                ctx.strokeStyle = `rgba(217, 119, 6, ${opacity})`;
+                                ctx.beginPath();
+                                ctx.moveTo(mouse.x, mouse.y);
+                                ctx.lineTo(p.x, p.y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    
+                    // Draw particles
+                    particles.forEach(p => {
+                        let glow = 0;
+                        if (mouse.active) {
+                            const dist = Math.hypot(mouse.x - p.x, mouse.y - p.y);
+                            if (dist < MOUSE_RADIUS) glow = (1 - dist/MOUSE_RADIUS) * 0.6;
+                        }
+                        
+                        const strokeColor = `rgba(217, 119, 6, ${Math.min(0.9, p.opacity + glow)})`;
+                        let fillColor = null;
+                        if (p.size > 8) {
+                            fillColor = `rgba(217, 119, 6, ${Math.min(0.4, p.opacity * 0.3 + glow * 0.3)})`;
+                        }
+                        drawHexagon(p.x, p.y, p.size, p.rot, fillColor, strokeColor);
+                    });
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                window.addEventListener('resize', () => {
+                    clearTimeout(window.resizeTimeout);
+                    window.resizeTimeout = setTimeout(init, 250);
+                });
+                
+                canvas.parentElement.addEventListener('mousemove', e => {
+                    const rect = canvas.parentElement.getBoundingClientRect();
+                    mouse.x = e.clientX - rect.left;
+                    mouse.y = e.clientY - rect.top;
+                    mouse.active = true;
+                });
+                
+                canvas.parentElement.addEventListener('mouseleave', () => {
+                    mouse.active = false;
+                });
+                
+                init();
+                animate();
+            });
+        </script>
+
+        <div class="relative z-10">
         <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center text-center lg:text-left">
             <div class="hero-copy reveal flex flex-col items-center lg:items-start">
-                <div class="bg-glow-gradient border border-border-hover text-amber-600 py-2 px-[18px] clip-chamfer-sm text-[0.8rem] font-bold uppercase tracking-[0.12em] mb-6 inline-flex items-center gap-2">
+                <div class="bg-glow-gradient text-amber-600 py-2 px-[18px] clip-chamfer-sm text-[0.8rem] font-bold uppercase tracking-[0.12em] mb-6 inline-flex items-center gap-2">
                     <i class="fas fa-sparkles"></i> Creative Brand Strategy & Visual Storytelling
                 </div>
                 <h2 class="text-[2.2rem] sm:text-[2.6rem] lg:text-[min(3.8rem,5vw)] leading-[1.1] font-extrabold tracking-[-0.03em] text-slate-900 mb-6 flex flex-wrap gap-[0.3em] items-center justify-center lg:justify-start">
@@ -61,25 +216,26 @@ import Layout from '../layouts/Layout.astro';
                 <p class="text-[1.15rem] leading-[1.8] text-slate-600 mb-9 max-w-[580px] mx-auto lg:mx-0">We craft polished identities, marketing materials, and digital experiences that elevate businesses,
                     capture attention, and drive meaningful growth.</p>
                 <div class="flex gap-4 flex-wrap mb-12 w-full justify-center lg:justify-start max-sm:flex-col">
-                    <a href="#contact" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer border-none bg-accent-gradient hover:shadow-honey-glow text-white shadow-[0_8px_24px_rgba(217,119,6,0.2)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(217,119,6,0.3)]"><i class="fas fa-paper-plane"></i>Start a project</a>
-                    <a href="#work" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-white border hover:shadow-honey-glow border-border-color text-slate-900 hover:bg-slate-100 hover:-translate-y-0.5">Explore Work</a>
+                    <a href="#contact" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-accent-gradient hover:shadow-honey-glow text-white shadow-[0_8px_24px_rgba(217,119,6,0.2)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(217,119,6,0.3)]"><i class="fas fa-paper-plane"></i>Start a project</a>
+                    <a href="#work" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-amber-600 text-white hover:shadow-honey-glow hover:-translate-y-0.5">Explore Work</a>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 w-full max-w-[600px] lg:max-w-full mx-auto lg:mx-0">
-                    <div class="bg-white border border-border-color p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:border-border-hover">
+                    <div class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:">
                         <span class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent">100+</span>
                         <span class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]">Projects Delivered</span>
                     </div>
-                    <div class="bg-white border border-border-color p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:border-border-hover">
+                    <div class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:">
                         <span class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent">5+</span>
                         <span class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]">Years Experience</span>
                     </div>
-                    <div class="bg-white border border-border-color p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:border-border-hover">
+                    <div class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:">
                         <span class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent">24/7</span>
                         <span class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]">Client Support</span>
                     </div>
                 </div>
             </div>
         </div>
+            </div>
     </section>
 
     <!-- Marquee Section -->
@@ -119,7 +275,7 @@ import Layout from '../layouts/Layout.astro';
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <!-- 01 Logo Design -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-palette"></i></div>
                     </div>
@@ -128,7 +284,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 02 Branding -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-bullhorn"></i></div>
                     </div>
@@ -138,7 +294,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 03 Business Cards -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-id-card"></i></div>
                     </div>
@@ -148,7 +304,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 04 Invitation Design -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-envelope-open-text"></i></div>
                     </div>
@@ -158,7 +314,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 05 Mockups & Presentations -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-images"></i></div>
                     </div>
@@ -168,7 +324,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 06 Invoice & Stationary -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-file-invoice-dollar"></i></div>
                     </div>
@@ -178,7 +334,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 07 Product Tags -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-tag"></i></div>
                     </div>
@@ -188,7 +344,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 08 Video Editing -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-video"></i></div>
                     </div>
@@ -198,7 +354,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 09 Web Design -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-globe"></i></div>
                     </div>
@@ -208,7 +364,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 10 Social Media Covers -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fab fa-facebook-f"></i></div>
                     </div>
@@ -218,7 +374,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 11 Brochure Design -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-book-open"></i></div>
                     </div>
@@ -229,7 +385,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- 12 Marketing Material -->
-                <div class="group bg-white border border-border-color clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover:border-border-hover after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-bullseye"></i></div>
                     </div>
@@ -252,8 +408,8 @@ import Layout from '../layouts/Layout.astro';
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6 max-w-[480px] sm:max-w-full mx-auto">
                 <!-- Project 1 -->
-                <div class="group/card bg-white clip-chamfer-card border border-border-color overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover:border-border-hover reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative border-b border-border-color clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
+                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
+                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
                         <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE VISITING CARD.png" alt="Visiting Card Design Showcase" >
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
@@ -267,8 +423,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group/card bg-white clip-chamfer-card border border-border-color overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover:border-border-hover reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative border-b border-border-color clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
+                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
+                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
                         <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE INVITATION CARD.png" alt="Event Invitation Card Showcase" >
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
@@ -282,8 +438,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Project 3 -->
-                <div class="group/card bg-white clip-chamfer-card border border-border-color overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover:border-border-hover reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative border-b border-border-color clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
+                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
+                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
                         <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE FACEBOOK POST.png" alt="Facebook Post Design Showcase" >
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
@@ -297,8 +453,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Project 4 -->
-                <div class="group/card bg-white clip-chamfer-card border border-border-color overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover:border-border-hover reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative border-b border-border-color clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
+                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
+                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
                         <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE REEL COVER.png" alt="Instagram Reel Cover Showcase" >
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
@@ -312,8 +468,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Project 5 -->
-                <div class="group/card bg-white clip-chamfer-card border border-border-color overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover:border-border-hover reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative border-b border-border-color clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
+                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
+                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
                         <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE BILL.png" alt="Brand Invoice Design Showcase" >
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
@@ -327,8 +483,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Project 6 -->
-                <div class="group/card bg-white clip-chamfer-card border border-border-color overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover:border-border-hover reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative border-b border-border-color clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
+                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
+                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
                         <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/Independence Day from The Visual Hive.png" alt="Independence Day Design Campaign" >
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
@@ -426,7 +582,7 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Direct links to mail / contact -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <a href="mailto:thevisualhivedesigns@gmail.com" class="bg-white border border-border-color p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover:border-border-hover hover:-translate-y-1 hover:shadow-md">
+                    <a href="mailto:thevisualhivedesigns@gmail.com" class="bg-white p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover: hover:-translate-y-1 hover:shadow-md">
                         <div class="w-[44px] h-[44px] clip-hex bg-slate-100 text-amber-600 grid place-items-center text-[1.1rem] shrink-0"><i class="fas fa-envelope"></i></div>
                         <div class="flex flex-col overflow-hidden">
                             <span class="text-[0.75rem] font-bold text-slate-600 uppercase tracking-[0.05em]">Email</span>
@@ -434,7 +590,7 @@ import Layout from '../layouts/Layout.astro';
                         </div>
                     </a>
                     <a href="https://instagram.com/thevisuallhive" target="_blank" rel="noopener noreferrer"
-                        class="bg-white border border-border-color p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover:border-border-hover hover:-translate-y-1 hover:shadow-md">
+                        class="bg-white p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover: hover:-translate-y-1 hover:shadow-md">
                         <div class="w-[44px] h-[44px] clip-hex bg-slate-100 text-amber-600 grid place-items-center text-[1.1rem] shrink-0"><i class="fas fa-phone-alt"></i></div>
                         <div class="flex flex-col overflow-hidden">
                             <span class="text-[0.75rem] font-bold text-slate-600 uppercase tracking-[0.05em]">Contact</span>
@@ -445,7 +601,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <!-- Contact Form on right -->
-            <div class="bg-white border border-border-color clip-chamfer-card p-8 md:p-12 shadow-lg reveal">
+            <div class="bg-white clip-chamfer-card p-8 md:p-12 shadow-lg reveal">
                 <h4 class="text-[1.4rem] font-extrabold mb-6 text-slate-900">Start a Project Conversation</h4>
                 <form id="inquiry-form">
                     <input type="hidden" name="_captcha" value="false">
@@ -453,24 +609,24 @@ import Layout from '../layouts/Layout.astro';
                     <input type="hidden" name="_template" value="table">
                     <div class="mb-6">
                         <label for="name" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Your Full Name</label>
-                        <input type="text" id="name" name="name" class="w-full py-4 px-5 bg-slate-100 border border-transparent clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus:border-amber-600 focus:shadow-glow" placeholder="John Doe" required>
+                        <input type="text" id="name" name="name" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow" placeholder="John Doe" required>
                     </div>
                     <div class="mb-6">
                         <label for="email" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Your Email Address</label>
-                        <input type="email" id="email" name="email" class="w-full py-4 px-5 bg-slate-100 border border-transparent clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus:border-amber-600 focus:shadow-glow" placeholder="john@example.com"
+                        <input type="email" id="email" name="email" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow" placeholder="john@example.com"
                             required>
                     </div>
                     <div class="mb-6">
                         <label for="mobile" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Your Mobile Number</label>
-                        <input type="tel" id="mobile" name="mobile" class="w-full py-4 px-5 bg-slate-100 border border-transparent clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus:border-amber-600 focus:shadow-glow" placeholder="+XX XXXXX XXXXX"
+                        <input type="tel" id="mobile" name="mobile" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow" placeholder="+XX XXXXX XXXXX"
                             required>
                     </div>
                     <div class="mb-6">
                         <label for="description" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Project Details</label>
-                        <textarea class="w-full py-4 px-5 bg-slate-100 border border-transparent clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus:border-amber-600 focus:shadow-glow min-h-[150px] resize-y" id="description" name="description" class="w-full py-4 px-5 bg-slate-100 border border-transparent clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus:border-amber-600 focus:shadow-glow"
+                        <textarea class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow min-h-[150px] resize-y" id="description" name="description" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow"
                             placeholder="Briefly describe your design needs..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-submit">
+                    <button type="submit" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-amber-600 text-white hover:shadow-honey-glow hover:-translate-y-0.5 group/link">
                         <span>Send Inquiry</span> <i class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i>
                     </button>
                     <p class="mt-4 text-[0.95rem] font-semibold text-amber-600 min-h-[24px]" id="form-status" aria-live="polite"></p>
@@ -482,15 +638,15 @@ import Layout from '../layouts/Layout.astro';
     <!-- Social Links Block -->
     <div class="border-t border-border-color py-[60px] flex justify-center items-center bg-slate-100">
         <div class="flex gap-5 reveal">
-            <a href="https://instagram.com/thevisuallhive" target="_blank" class="w-14 h-14 clip-hex bg-white border border-border-color text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover:border-transparent hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
+            <a href="https://instagram.com/thevisuallhive" target="_blank" class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
                 aria-label="Instagram" rel="noopener noreferrer">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61590531748679" target="_blank" class="w-14 h-14 clip-hex bg-white border border-border-color text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover:border-transparent hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
+            <a href="https://www.facebook.com/profile.php?id=61590531748679" target="_blank" class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
                 aria-label="Facebook" rel="noopener noreferrer">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://youtube.com/@thevisualhive" target="_blank" class="w-14 h-14 clip-hex bg-white border border-border-color text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover:border-transparent hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]" aria-label="YouTube"
+            <a href="https://youtube.com/@thevisualhive" target="_blank" class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]" aria-label="YouTube"
                 rel="noopener noreferrer">
                 <i class="fab fa-youtube"></i>
             </a>

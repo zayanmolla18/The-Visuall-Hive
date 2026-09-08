@@ -74,4 +74,16 @@
   .bg-honeycomb-dark {
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='69.282' viewBox='0 0 40 69.282' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M40 17.32l-20 11.547L0 17.32V0h40v17.32zm0 34.64l-20 11.548L0 51.96V34.64h40v17.32zM20 51.96l-20-11.547v-23.094l20-11.547 20 11.547v23.094L20 51.96z'/%3E%3C/g%3E%3C/svg%3E");
   }
+
+  .bg-accent-gradient {
+    background-image: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .bg-glow-gradient {
+    background-image: linear-gradient(135deg, rgba(217, 119, 6, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+  }
+
+  .bg-hero-gradient {
+    background-image: radial-gradient(circle at top right, rgba(217, 119, 6, 0.08) 0%, transparent 60%), radial-gradient(circle at bottom left, rgba(217, 119, 6, 0.05) 0%, transparent 60%);
+  }
 }
