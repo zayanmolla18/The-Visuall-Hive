@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  
+  --animate-text-slide: text-slide 10s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+  --animate-pulse-blob: pulse-blob 8s infinite alternate;
+  --animate-scroll-marquee: scroll-marquee 25s linear infinite;
+  --animate-scroll-clients: scroll-clients 30s linear infinite;
+  
+  --shadow-hover: 0 30px 60px -20px rgba(15, 23, 42, 0.12), 0 4px 6px rgba(15, 23, 42, 0.02);
+  --shadow-glow: 0 0 24px rgba(217, 119, 6, 0.15);
+}
+
+@keyframes text-slide {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-20%); }
+  50%, 70% { transform: translateY(-40%); }
+  75%, 95% { transform: translateY(-60%); }
+  100% { transform: translateY(-80%); }
+}
+
+@keyframes pulse-blob {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.15) translate(10px, -10px); }
+}
+
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 12px)); }
+}
+
+@keyframes scroll-clients {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 40px)); }
+}
+
+@utility text-slider {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.1em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+@utility work-preview-stack {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
