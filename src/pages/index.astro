@@ -1,63 +1,144 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-
-
     <!-- Header Navigation -->
-    <header id="site-header" class="group fixed top-0 left-0 w-full bg-white/85 backdrop-blur-md border-b border-slate-900/10 z-[1000] transition-all duration-200 [&.scrolled]:bg-white/95 [&.scrolled]:shadow-sm">
-        <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full flex justify-between items-center h-[90px] transition-all duration-200 group-[.scrolled]:h-[76px]">
+    <header
+        id="site-header"
+        class="group fixed top-0 left-0 w-full bg-white/85 backdrop-blur-md border-b border-slate-900/10 z-[1000] transition-all duration-200 [&.scrolled]:bg-white/95 [&.scrolled]:shadow-sm"
+    >
+        <div
+            class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full flex justify-between items-center h-[90px] transition-all duration-200 group-[.scrolled]:h-[76px]"
+        >
             <a href="#" class="flex items-center gap-3">
-                <img src="/img/THE VISUAL HIVE TRANSPARENT BG LOGO.png" alt="The Visual Hive logo" class="h-12 w-auto transition-all duration-400 group-[.scrolled]:h-[42px]" >
-                <h1 class="text-[1.2rem] font-extrabold tracking-tight text-slate-900">The Visual Hive</h1>
+                <img
+                    src="/img/THE VISUAL HIVE TRANSPARENT BG LOGO.png"
+                    alt="The Visual Hive logo"
+                    class="h-12 w-auto transition-all duration-400 group-[.scrolled]:h-[42px]"
+                />
+                <h1
+                    class="text-[1.2rem] font-extrabold tracking-tight text-slate-900"
+                >
+                    The Visual Hive
+                </h1>
             </a>
 
             <nav class="hidden md:flex items-center gap-9">
-                <a href="#" class="nav-link active-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full">Home</a>
-                <a href="#services" class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full">Services</a>
-                <a href="#work" class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full">Portfolio</a>
-                <a href="#clients" class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full">Clients</a>
-                <a href="#contact" class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full">Contact</a>
+                <a
+                    href="#"
+                    class="nav-link active-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full"
+                    >Home</a
+                >
+                <a
+                   href="#features"
+                    class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full"
+                    >Features</a
+
+                 >
+                <a
+                    href="#services"
+                    class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full"
+                    >Services</a
+                >
+                <a
+                    href="#work"
+                    class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full"
+                    >Portfolios</a
+                >
+                <a
+                    href="#clients"
+                    class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full"
+                    >Clients</a
+                >
+                <a
+                    href="#contact"
+                    class="nav-link font-semibold text-[0.95rem] text-slate-600 relative py-2 transition-colors hover:text-slate-900 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-amber-600 after:transition-all after:duration-200 hover:after:w-full [&.active-link]:text-slate-900 [&.active-link]:after:w-full"
+                    >Contact</a
+                >
             </nav>
 
-            <button class="nav-toggle flex md:hidden flex-col justify-between w-6 h-[18px] bg-transparent border-none cursor-pointer z-[1100] group/toggle" id="menu-toggle" aria-label="Toggle navigation menu">
-                <span class="w-full h-[2px] bg-slate-900 rounded-sm transition-all duration-400 group-[.open]/toggle:translate-y-[8px] group-[.open]/toggle:rotate-45"></span>
-                <span class="w-full h-[2px] bg-slate-900 rounded-sm transition-all duration-400 group-[.open]/toggle:opacity-0"></span>
-                <span class="w-full h-[2px] bg-slate-900 rounded-sm transition-all duration-400 group-[.open]/toggle:-translate-y-[8px] group-[.open]/toggle:-rotate-45"></span>
+            <button
+                class="nav-toggle flex md:hidden flex-col justify-between w-6 h-[18px] bg-transparent border-none cursor-pointer z-[1100] group/toggle"
+                id="menu-toggle"
+                aria-label="Toggle navigation menu"
+            >
+                <span
+                    class="w-full h-[2px] bg-slate-900 rounded-sm transition-all duration-400 group-[.open]/toggle:translate-y-[8px] group-[.open]/toggle:rotate-45"
+                ></span>
+                <span
+                    class="w-full h-[2px] bg-slate-900 rounded-sm transition-all duration-400 group-[.open]/toggle:opacity-0"
+                ></span>
+                <span
+                    class="w-full h-[2px] bg-slate-900 rounded-sm transition-all duration-400 group-[.open]/toggle:-translate-y-[8px] group-[.open]/toggle:-rotate-45"
+                ></span>
             </button>
         </div>
     </header>
 
     <!-- Mobile Navigation Drawer -->
-    <div class="overlay fixed inset-0 w-screen h-screen bg-slate-900/40 backdrop-blur-sm z-[1020] opacity-0 pointer-events-none transition-opacity duration-400 ease-in [&.open]:opacity-100 [&.open]:pointer-events-auto" id="menu-overlay"></div>
-    <div class="nav-drawer fixed top-0 -right-[100%] w-[300px] h-screen bg-white shadow-[-10px_0_40px_rgba(15,23,42,0.15)] z-[1050] flex flex-col pt-[120px] px-10 pb-10 gap-7 transition-[right] duration-[400ms] ease-smooth [&.open]:right-0" id="mobile-drawer">
-        <a href="#" class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2">Home</a>
-        <a href="#services" class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2">Services</a>
-        <a href="#work" class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2">Portfolio</a>
-        <a href="#clients" class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2">Clients</a>
-        <a href="#contact" class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2">Contact</a>
+    <div
+        class="overlay fixed inset-0 w-screen h-screen bg-slate-900/40 backdrop-blur-sm z-[1020] opacity-0 pointer-events-none transition-opacity duration-400 ease-in [&.open]:opacity-100 [&.open]:pointer-events-auto"
+        id="menu-overlay"
+    >
+    </div>
+    <div
+        class="nav-drawer fixed top-0 -right-[100%] w-[300px] h-screen bg-white shadow-[-10px_0_40px_rgba(15,23,42,0.15)] z-[1050] flex flex-col pt-[120px] px-10 pb-10 gap-7 transition-[right] duration-[400ms] ease-smooth [&.open]:right-0"
+        id="mobile-drawer"
+    >
+        <a
+            href="#"
+            class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2"
+            >Home</a
+        >
+        <a
+            href="#services"
+            class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2"
+            >Services</a
+        >
+        <a
+            href="#work"
+            class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2"
+            >Portfolio</a
+        >
+        <a
+            href="#clients"
+            class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2"
+            >Clients</a
+        >
+        <a
+            href="#contact"
+            class="mobile-link text-[1.2rem] font-bold text-slate-900 border-b border-slate-900/10 pb-3 transition-all duration-200 hover:text-amber-600 hover:pl-2"
+            >Contact</a
+        >
     </div>
 
     <!-- Hero Section -->
-    <section class="hero relative py-[200px] lg:pt-[160px] pb-[120px] overflow-hidden bg-hero-gradient ">
-        
+    <section
+        class="hero relative py-[200px] lg:pt-[160px] pb-[120px] overflow-hidden bg-hero-gradient"
+    >
         <!-- Decorative Canvas Background -->
-        <canvas id="hero-hex-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80" aria-hidden="true"></canvas>
+        <canvas
+            id="hero-hex-canvas"
+            class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80"
+            aria-hidden="true"></canvas>
         <!-- Gradient overlay to ensure text readability -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent pointer-events-none z-[1]"></div>
-        
-                <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const canvas = document.getElementById('hero-hex-canvas');
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent pointer-events-none z-[1]"
+        >
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const canvas = document.getElementById("hero-hex-canvas");
                 if (!canvas) return;
-                const ctx = canvas.getContext('2d');
-                
+                const ctx = canvas.getContext("2d");
+
                 // Config
                 const PARTICLES = window.innerWidth < 768 ? 30 : 85;
                 const LINK_DISTANCE = window.innerWidth < 768 ? 120 : 200;
                 const MOUSE_RADIUS = 280;
-                
+
                 let width, height;
                 let particles = [];
                 let mouse = { x: -1000, y: -1000, active: false };
@@ -65,7 +146,7 @@ import Layout from '../layouts/Layout.astro';
                 function init() {
                     width = canvas.width = canvas.parentElement.offsetWidth;
                     height = canvas.height = canvas.parentElement.offsetHeight;
-                    
+
                     particles = [];
                     for (let i = 0; i < PARTICLES; i++) {
                         particles.push({
@@ -76,7 +157,7 @@ import Layout from '../layouts/Layout.astro';
                             size: 4 + Math.random() * 8,
                             rot: Math.random() * Math.PI * 2,
                             rotSpeed: (Math.random() - 0.5) * 0.02,
-                            opacity: 0.15 + Math.random() * 0.35
+                            opacity: 0.15 + Math.random() * 0.35,
                         });
                     }
                 }
@@ -84,7 +165,7 @@ import Layout from '../layouts/Layout.astro';
                 function drawHexagon(x, y, r, rot, fill, stroke) {
                     ctx.beginPath();
                     for (let i = 0; i < 6; i++) {
-                        const angle = Math.PI / 3 * i + rot;
+                        const angle = (Math.PI / 3) * i + rot;
                         const hx = x + r * Math.cos(angle);
                         const hy = y + r * Math.sin(angle);
                         if (i === 0) ctx.moveTo(hx, hy);
@@ -104,30 +185,31 @@ import Layout from '../layouts/Layout.astro';
 
                 function animate() {
                     ctx.clearRect(0, 0, width, height);
-                    
+
                     // Update particles
-                    particles.forEach(p => {
+                    particles.forEach((p) => {
                         p.x += p.vx;
                         p.y += p.vy;
                         p.rot += p.rotSpeed;
-                        
+
                         // Wrap around edges for a continuous flowing effect
                         if (p.x < -20) p.x = width + 20;
                         if (p.x > width + 20) p.x = -20;
                         if (p.y < -20) p.y = height + 20;
                         if (p.y > height + 20) p.y = -20;
                     });
-                    
+
                     // Draw links
                     ctx.lineWidth = 0.5;
                     for (let i = 0; i < particles.length; i++) {
                         for (let j = i + 1; j < particles.length; j++) {
                             const dx = particles[i].x - particles[j].x;
                             const dy = particles[i].y - particles[j].y;
-                            const dist = Math.sqrt(dx*dx + dy*dy);
-                            
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+
                             if (dist < LINK_DISTANCE) {
-                                const opacity = (1 - dist/LINK_DISTANCE) * 0.15;
+                                const opacity =
+                                    (1 - dist / LINK_DISTANCE) * 0.15;
                                 ctx.strokeStyle = `rgba(217, 119, 6, ${opacity})`;
                                 ctx.beginPath();
                                 ctx.moveTo(particles[i].x, particles[i].y);
@@ -136,16 +218,16 @@ import Layout from '../layouts/Layout.astro';
                             }
                         }
                     }
-                    
+
                     // Draw mouse links
                     if (mouse.active) {
                         ctx.lineWidth = 1;
                         for (let p of particles) {
                             const dx = mouse.x - p.x;
                             const dy = mouse.y - p.y;
-                            const dist = Math.sqrt(dx*dx + dy*dy);
+                            const dist = Math.sqrt(dx * dx + dy * dy);
                             if (dist < MOUSE_RADIUS) {
-                                const opacity = (1 - dist/MOUSE_RADIUS) * 0.4;
+                                const opacity = (1 - dist / MOUSE_RADIUS) * 0.4;
                                 ctx.strokeStyle = `rgba(217, 119, 6, ${opacity})`;
                                 ctx.beginPath();
                                 ctx.moveTo(mouse.x, mouse.y);
@@ -154,243 +236,694 @@ import Layout from '../layouts/Layout.astro';
                             }
                         }
                     }
-                    
+
                     // Draw particles
-                    particles.forEach(p => {
+                    particles.forEach((p) => {
                         let glow = 0;
                         if (mouse.active) {
-                            const dist = Math.hypot(mouse.x - p.x, mouse.y - p.y);
-                            if (dist < MOUSE_RADIUS) glow = (1 - dist/MOUSE_RADIUS) * 0.6;
+                            const dist = Math.hypot(
+                                mouse.x - p.x,
+                                mouse.y - p.y,
+                            );
+                            if (dist < MOUSE_RADIUS)
+                                glow = (1 - dist / MOUSE_RADIUS) * 0.6;
                         }
-                        
+
                         const strokeColor = `rgba(217, 119, 6, ${Math.min(0.9, p.opacity + glow)})`;
                         let fillColor = null;
                         if (p.size > 8) {
                             fillColor = `rgba(217, 119, 6, ${Math.min(0.4, p.opacity * 0.3 + glow * 0.3)})`;
                         }
-                        drawHexagon(p.x, p.y, p.size, p.rot, fillColor, strokeColor);
+                        drawHexagon(
+                            p.x,
+                            p.y,
+                            p.size,
+                            p.rot,
+                            fillColor,
+                            strokeColor,
+                        );
                     });
-                    
+
                     requestAnimationFrame(animate);
                 }
-                
-                window.addEventListener('resize', () => {
+
+                window.addEventListener("resize", () => {
                     clearTimeout(window.resizeTimeout);
                     window.resizeTimeout = setTimeout(init, 250);
                 });
-                
-                canvas.parentElement.addEventListener('mousemove', e => {
+
+                canvas.parentElement.addEventListener("mousemove", (e) => {
                     const rect = canvas.parentElement.getBoundingClientRect();
                     mouse.x = e.clientX - rect.left;
                     mouse.y = e.clientY - rect.top;
                     mouse.active = true;
                 });
-                
-                canvas.parentElement.addEventListener('mouseleave', () => {
+
+                canvas.parentElement.addEventListener("mouseleave", () => {
                     mouse.active = false;
                 });
-                
+
                 init();
                 animate();
             });
         </script>
 
         <div class="relative z-10">
-        <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center text-center lg:text-left">
-            <div class="hero-copy reveal flex flex-col items-center lg:items-start">
-                <div class="bg-glow-gradient text-amber-600 py-2 px-[18px] clip-chamfer-sm text-[0.8rem] font-bold uppercase tracking-[0.12em] mb-6 inline-flex items-center gap-2">
-                    <i class="fas fa-sparkles"></i> Creative Brand Strategy & Visual Storytelling
-                </div>
-                <h2 class="text-[2.2rem] sm:text-[2.6rem] lg:text-[min(3.8rem,5vw)] leading-[1.1] font-extrabold tracking-[-0.03em] text-slate-900 mb-6 flex flex-wrap gap-[0.3em] items-center justify-center lg:justify-start">
-                    Design that builds 
-                    <span class="text-slider">
-                        <span class="text-slider-inner animate-text-slide">
-                            <span class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap">powerful brands</span>
-                            <span class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap">digital experiences</span>
-                            <span class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap">modern identities</span>
-                            <span class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap">impactful marketing</span>
-                            <span class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap">powerful brands</span>
+            <div
+                class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center text-center lg:text-left"
+            >
+                <div
+                    class="hero-copy reveal flex flex-col items-center lg:items-start"
+                >
+                    <div
+                        class="bg-glow-gradient text-amber-600 py-2 px-[18px] clip-chamfer-sm text-[0.8rem] font-bold uppercase tracking-[0.12em] mb-6 inline-flex items-center gap-2"
+                    >
+                        <i class="fas fa-sparkles"></i> Creative Brand Strategy &
+                        Visual Storytelling
+                    </div>
+                    <h2
+                        class="text-[2.2rem] sm:text-[2.6rem] lg:text-[min(3.8rem,5vw)] leading-[1.1] font-extrabold tracking-[-0.03em] text-slate-900 mb-6 flex flex-wrap gap-[0.3em] items-center justify-center lg:justify-start"
+                    >
+                        Design that
+                        <span class="text-slider">
+                            <span class="text-slider-inner animate-text-slide">
+                                <span
+                                    class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap"
+                                    >builds brands</span
+                                >
+                                <span
+                                    class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap"
+                                    >stops the scroll</span
+                                >
+                                <span
+                                    class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap"
+                                    >makes you stand out</span
+                                >
+                                <span
+                                    class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap"
+                                    >drives revenue</span
+                                >
+                                <span
+                                    class="bg-gradient-to-br from-slate-800 to-amber-400 bg-clip-text text-transparent h-[1.1em] inline-flex items-center whitespace-nowrap"
+                                    >builds brands</span
+                                >
+                            </span>
                         </span>
-                    </span>
-                </h2>
-                <p class="text-[1.15rem] leading-[1.8] text-slate-600 mb-9 max-w-[580px] mx-auto lg:mx-0">We craft polished identities, marketing materials, and digital experiences that elevate businesses,
-                    capture attention, and drive meaningful growth.</p>
-                <div class="flex gap-4 flex-wrap mb-12 w-full justify-center lg:justify-start max-sm:flex-col">
-                    <a href="#contact" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-accent-gradient hover:shadow-honey-glow text-white shadow-[0_8px_24px_rgba(217,119,6,0.2)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(217,119,6,0.3)]"><i class="fas fa-paper-plane"></i>Start a project</a>
-                    <a href="#work" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-amber-600 text-white hover:shadow-honey-glow hover:-translate-y-0.5">Explore Work</a>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 w-full max-w-[600px] lg:max-w-full mx-auto lg:mx-0">
-                    <div class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:">
-                        <span class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent">100+</span>
-                        <span class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]">Projects Delivered</span>
+                    </h2>
+                    <p
+                        class="text-[1.15rem] leading-[1.8] text-slate-600 mb-9 max-w-[580px] mx-auto lg:mx-0"
+                    >
+                        We craft polished identities, marketing materials, and
+                        digital experiences that elevate businesses, capture
+                        attention, and drive meaningful growth.
+                    </p>
+                    <div
+                        class="flex gap-4 flex-wrap mb-12 w-full justify-center lg:justify-start max-sm:flex-col"
+                    >
+                        <a
+                            href="#contact"
+                            class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-accent-gradient hover:shadow-honey-glow text-white shadow-[0_8px_24px_rgba(217,119,6,0.2)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(217,119,6,0.3)]"
+                            ><i class="fas fa-paper-plane"></i>Start a project</a
+                        >
+                        <a
+                            href="#work"
+                            class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-amber-600 text-white hover:shadow-honey-glow hover:-translate-y-0.5"
+                            >Explore Work</a
+                        >
                     </div>
-                    <div class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:">
-                        <span class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent">5+</span>
-                        <span class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]">Years Experience</span>
-                    </div>
-                    <div class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:">
-                        <span class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent">24/7</span>
-                        <span class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]">Client Support</span>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 w-full max-w-[600px] lg:max-w-full mx-auto lg:mx-0"
+                    >
+                        <div
+                            class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:"
+                        >
+                            <span
+                                class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent"
+                                >100+</span
+                            >
+                            <span
+                                class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]"
+                                >Projects Delivered</span
+                            >
+                        </div>
+                        <div
+                            class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:"
+                        >
+                            <span
+                                class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent"
+                                >5+</span
+                            >
+                            <span
+                                class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]"
+                                >Years Experience</span
+                            >
+                        </div>
+                        <div
+                            class="bg-white p-5 clip-chamfer transition-smooth hover:shadow-honey-glow hover:-translate-y-1 hover:shadow-md hover:"
+                        >
+                            <span
+                                class="block text-[1.8rem] font-extrabold text-slate-900 mb-1 bg-accent-gradient bg-clip-text text-transparent"
+                                >24/7</span
+                            >
+                            <span
+                                class="text-[0.85rem] font-semibold text-slate-600 uppercase tracking-[0.05em]"
+                                >Client Support</span
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
+        
+        
+        
+<!-- Features Section -->
+<section id="features" class="py-[120px] lg:py-[100px] relative overflow-hidden bg-slate-50">
+    <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full">
+
+        <!-- Section Heading -->
+        <div class="text-center max-w-[720px] mx-auto mb-16 reveal">
+            <span class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3">
+                Why Choose Us
+            </span>
+
+            <h2 class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5">
+                What Makes The Visual Hive Different?
+            </h2>
+
+            <p class="text-[1.05rem] sm:text-[1.1rem] text-slate-600 leading-relaxed">
+                Great design is more than just appearance. It's about creating
+                meaningful connections, communicating your message, and building
+                a brand people remember. Here's what makes our creative approach special.
+            </p>
         </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Feature 01 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">01</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Premium Quality
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    Every design is carefully crafted with professional standards,
+                    refined details, and a strong focus on visual excellence.
+                </p>
             </div>
+
+            <!-- Feature 02 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">02</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Original Creativity
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    We develop distinctive visual concepts that reflect your
+                    brand personality and help your business stand apart.
+                </p>
+            </div>
+
+            <!-- Feature 03 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">03</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Tailored Solutions
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    Every project is customized around your business goals,
+                    target audience, creative direction, and specific requirements.
+                </p>
+            </div>
+
+            <!-- Feature 04 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">04</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Timely Delivery
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    An organized creative workflow helps us manage projects
+                    efficiently and deliver within agreed timelines.
+                </p>
+            </div>
+
+            <!-- Feature 05 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">05</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Brand Consistency
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    We maintain a cohesive visual language across your branding,
+                    print materials, social media, and digital platforms.
+                </p>
+            </div>
+
+            <!-- Feature 06 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">06</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Print & Digital Expertise
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    From production-ready print designs to engaging digital
+                    graphics, we create visuals for multiple platforms.
+                </p>
+            </div>
+
+            <!-- Feature 07 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">07</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Collaborative Approach
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    Your ideas matter. We value your feedback and work
+                    collaboratively to bring your creative vision to life.
+                </p>
+            </div>
+
+            <!-- Feature 08 -->
+            <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[280px] shadow-sm hover:-translate-y-2 hover:shadow-honey-glow reveal">
+                <div class="flex justify-between items-start mb-7">
+                    <div class="w-[58px] h-[58px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.4rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <span class="text-[2rem] font-extrabold text-slate-100 group-hover:text-amber-600/20 transition-smooth">08</span>
+                </div>
+                <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3">
+                    Attention to Detail
+                </h3>
+                <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                    From typography and color combinations to layouts and
+                    finishing, every element receives thoughtful attention.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Closing Statement -->
+        <div class="mt-16 text-center reveal">
+            <p class="text-[1.15rem] sm:text-[1.3rem] font-bold text-slate-900 mb-3">
+                Your Vision. Our Creativity. One Powerful Identity.
+            </p>
+            <p class="text-slate-600 text-[0.95rem]">
+                We don't just create designs. We create visual experiences that make brands memorable.
+            </p>
+            <a href="#contact"
+                class="inline-flex items-center justify-center gap-3 mt-7 py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth bg-accent-gradient text-white hover:-translate-y-1 hover:shadow-honey-glow">
+                Let's Create Together
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+        
+        </div>
     </section>
 
     <!-- Marquee Section -->
-    <div class="bg-slate-800 text-white py-5 overflow-hidden whitespace-nowrap relative flex items-center border-y border-white/10">
+    <div
+        class="bg-slate-800 text-white py-5 overflow-hidden whitespace-nowrap relative flex items-center border-y border-white/10"
+    >
         <div class="inline-flex items-center gap-6 animate-scroll-marquee pr-6">
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">BRAND IDENTITY</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">LOGO DESIGN</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">VISUAL STORYTELLING</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">SOCIAL MEDIA GRAPHICS</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">CREATIVE STRATEGY</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">PRINT MEDIA</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">UI/UX DESIGN</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">MARKETING MATERIALS</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >BRAND IDENTITY</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >LOGO DESIGN</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >VISUAL STORYTELLING</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >SOCIAL MEDIA GRAPHICS</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >CREATIVE STRATEGY</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >PRINT MEDIA</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >UI/UX DESIGN</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >MARKETING MATERIALS</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
             <!-- duplicate for smooth scrolling -->
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">BRAND IDENTITY</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">LOGO DESIGN</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">VISUAL STORYTELLING</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">SOCIAL MEDIA GRAPHICS</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">CREATIVE STRATEGY</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">PRINT MEDIA</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">UI/UX DESIGN</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
-            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase">MARKETING MATERIALS</span><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >BRAND IDENTITY</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >LOGO DESIGN</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >VISUAL STORYTELLING</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >SOCIAL MEDIA GRAPHICS</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >CREATIVE STRATEGY</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >PRINT MEDIA</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >UI/UX DESIGN</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
+            <span class="text-[1.15rem] font-bold tracking-[0.15em] uppercase"
+                >MARKETING MATERIALS</span
+            ><span class="text-amber-600 text-[1.5rem] leading-none">•</span>
         </div>
     </div>
-
-
 
     <!-- Services Section -->
     <section id="services" class="py-[120px] lg:py-[90px] relative">
         <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full">
             <div class="text-center max-w-[680px] mx-auto mb-16 reveal">
-                <span class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3">Services</span>
-                <h2 class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5">Creative Capabilities</h2>
-                <p class="text-[1.1rem] text-slate-600 leading-relaxed">From core visual identity systems to specialized digital items, we provide
-                    full-spectrum design solutions that make your business stand out.</p>
+                <span
+                    class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3"
+                    >Services</span
+                >
+                <h2
+                    class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5"
+                >
+                    Creative Capabilities
+                </h2>
+                <p class="text-[1.1rem] text-slate-600 leading-relaxed">
+                    From core visual identity systems to specialized digital
+                    items, we provide full-spectrum design solutions that make
+                    your business stand out.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            >
                 <!-- 01 Logo Design -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-palette"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-palette"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Logo Design</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Memorable logos and brand marks designed for maximum clarity, versatility, and scalability.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Logo Design
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Memorable logos and brand marks designed for maximum
+                        clarity, versatility, and scalability.
+                    </p>
                 </div>
 
                 <!-- 02 Branding -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-bullhorn"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Brand Identity</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Complete design guideline systems ensuring consistent typography, colors, and styling across all
-                        touchpoints.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Brand Identity
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Complete design guideline systems ensuring consistent
+                        typography, colors, and styling across all touchpoints.
+                    </p>
                 </div>
 
                 <!-- 03 Business Cards -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-id-card"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-id-card"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Business Cards</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Premium print-ready business cards styled to establish authority and leave lasting impressions.
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Business Cards
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Premium print-ready business cards styled to establish
+                        authority and leave lasting impressions.
                     </p>
                 </div>
 
                 <!-- 04 Invitation Design -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-envelope-open-text"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Event Invitations</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Custom, elegant stationary layouts designed for events, store openings, and special corporate
-                        launches.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Event Invitations
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Custom, elegant stationary layouts designed for events,
+                        store openings, and special corporate launches.
+                    </p>
                 </div>
 
                 <!-- 05 Mockups & Presentations -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-images"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-images"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Creative Mockups</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">High-end corporate visualization files demonstrating your branding in real-world environments.
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Creative Mockups
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        High-end corporate visualization files demonstrating
+                        your branding in real-world environments.
                     </p>
                 </div>
 
                 <!-- 06 Invoice & Stationary -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Billing Designs</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Professional layout solutions for receipts, invoices, and letterheads to convey trust and
-                        systemization.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Billing Designs
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Professional layout solutions for receipts, invoices,
+                        and letterheads to convey trust and systemization.
+                    </p>
                 </div>
 
                 <!-- 07 Product Tags -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-tag"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-tag"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Product Tags</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Clean label templates and product tagging solutions optimized for printing and display
-                        aesthetics.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Product Tags
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Clean label templates and product tagging solutions
+                        optimized for printing and display aesthetics.
+                    </p>
                 </div>
 
                 <!-- 08 Video Editing -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-video"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-video"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Video Editing</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">High-energy visual pacing, edits, and cuts styled for optimal audience retention on social
-                        networks.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Video Generation
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        High-energy visual pacing, edits, and cuts styled for
+                        optimal audience retention on social networks.
+                    </p>
                 </div>
 
                 <!-- 09 Web Design -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-globe"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-globe"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Website Design</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Modern user interfaces designed with strict layout grids, clear navigation hierarchies, and
-                        responsive paths.</p>
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Website Design
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Modern user interfaces designed with strict layout
+                        grids, clear navigation hierarchies, and responsive
+                        paths.
+                    </p>
                 </div>
 
                 <!-- 10 Social Media Covers -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fab fa-facebook-f"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Social Banners</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Stunning cover designs tailored to fit header structures across YouTube, Facebook, and Instagram.
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Social Banners
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Stunning cover designs tailored to fit header structures
+                        across YouTube, Facebook, and Instagram.
                     </p>
                 </div>
 
                 <!-- 11 Brochure Design -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-book-open"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-book-open"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Brochure Design</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Creative and professional brochure designs crafted with compelling layouts, clear messaging, and
-                        visuals that showcase your brand and engage your audience.
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Brochure Design
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Creative and professional brochure designs crafted with
+                        compelling layouts, clear messaging, and visuals that
+                        showcase your brand and engage your audience.
                     </p>
                 </div>
 
                 <!-- 12 Marketing Material -->
-                <div class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal">
+                <div
+                    class="group bg-white clip-chamfer-card p-8 transition-smooth relative overflow-hidden flex flex-col min-h-[260px] hover:-translate-y-1.5 hover:shadow-honey-glow hover: after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:bg-accent-gradient after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 reveal"
+                >
                     <div class="flex justify-between items-start mb-6">
-                        <div class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"><i class="fas fa-bullseye"></i></div>
+                        <div
+                            class="w-[52px] h-[52px] clip-hex grid place-items-center bg-amber-600/10 text-amber-600 text-[1.25rem] transition-smooth group-hover:bg-accent-gradient group-hover:text-white group-hover:scale-105"
+                        >
+                            <i class="fas fa-bullseye"></i>
+                        </div>
                     </div>
-                    <h3 class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]">Advertisements</h3>
-                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">Optimized banner promotions designed to grab attention and boost marketing conversion metrics.
+                    <h3
+                        class="text-[1.15rem] font-extrabold text-slate-900 mb-3 tracking-[-0.01em]"
+                    >
+                        Advertisements
+                    </h3>
+                    <p class="text-[0.95rem] text-slate-600 leading-relaxed">
+                        Optimized banner promotions designed to grab attention
+                        and boost marketing conversion metrics.
                     </p>
                 </div>
             </div>
@@ -400,100 +933,261 @@ import Layout from '../layouts/Layout.astro';
     <section id="work" class="py-[120px] lg:py-[90px] relative">
         <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full">
             <div class="text-center max-w-[680px] mx-auto mb-16 reveal">
-                <span class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3">Portfolio</span>
-                <h2 class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5">Selected Design Works</h2>
-                <p class="text-[1.1rem] text-slate-600 leading-relaxed">Explore a curated showcase of original marketing materials, print designs,
-                    social graphics, and branding assets crafted to elevate businesses.</p>
+                <span
+                    class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3"
+                    >Portfolio</span
+                >
+                <h2
+                    class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5"
+                >
+                    Selected Design Works
+                </h2>
+                <p class="text-[1.1rem] text-slate-600 leading-relaxed">
+                    Explore a curated showcase of original marketing materials,
+                    print designs, social graphics, and branding assets crafted
+                    to elevate businesses.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6 max-w-[480px] sm:max-w-full mx-auto">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6 max-w-[480px] sm:max-w-full mx-auto"
+            >
                 <!-- Project 1 -->
-                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
-                        <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE VISITING CARD.png" alt="Visiting Card Design Showcase" >
+                <div
+                    class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal"
+                >
+                    <div
+                        class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100"
+                    >
+                        <img
+                            class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105"
+                            src="/img/THE VISUAL HIVE VISITING CARD.png"
+                            alt="Visiting Card Design Showcase"
+                        />
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
-                        <span class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2">Print Design</span>
-                        <h3 class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5">Visiting Card Design</h3>
-                        <p class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5">Elegant, clean, and modern double-sided business card layout
-                            structured for high-end professional networking.</p>
-                        <a href="#contact" class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link">Inquire About Branding <i
-                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i></a>
+                        <span
+                            class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2"
+                            >Print Design</span
+                        >
+                        <h3
+                            class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5"
+                        >
+                            Visiting Card Design
+                        </h3>
+                        <p
+                            class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5"
+                        >
+                            Elegant, clean, and modern double-sided business
+                            card layout structured for high-end professional
+                            networking.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link"
+                            >Inquire About Branding <i
+                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                            ></i></a
+                        >
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
-                        <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE INVITATION CARD.png" alt="Event Invitation Card Showcase" >
+                <div
+                    class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal"
+                >
+                    <div
+                        class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100"
+                    >
+                        <img
+                            class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105"
+                            src="/img/THE VISUAL HIVE INVITATION CARD.png"
+                            alt="Event Invitation Card Showcase"
+                        />
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
-                        <span class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2">Print Media</span>
-                        <h3 class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5">Event Invitation Card</h3>
-                        <p class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5">Sophisticated, print-ready invitation card design featuring sleek
-                            layouts and custom creative elements.</p>
-                        <a href="#contact" class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link">Inquire About Branding <i
-                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i></a>
+                        <span
+                            class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2"
+                            >Print Media</span
+                        >
+                        <h3
+                            class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5"
+                        >
+                            Event Invitation Card
+                        </h3>
+                        <p
+                            class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5"
+                        >
+                            Sophisticated, print-ready invitation card design
+                            featuring sleek layouts and custom creative
+                            elements.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link"
+                            >Inquire About Branding <i
+                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                            ></i></a
+                        >
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
-                        <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE FACEBOOK POST.png" alt="Facebook Post Design Showcase" >
+                <div
+                    class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal"
+                >
+                    <div
+                        class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100"
+                    >
+                        <img
+                            class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105"
+                            src="/img/THE VISUAL HIVE FACEBOOK POST.png"
+                            alt="Facebook Post Design Showcase"
+                        />
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
-                        <span class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2">Social Branding</span>
-                        <h3 class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5">Social Media Posts</h3>
-                        <p class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5">A dynamic and eye-catching social banner layout designed to improve
-                            brand communication and online engagement.</p>
-                        <a href="#contact" class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link">Inquire About Branding <i
-                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i></a>
+                        <span
+                            class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2"
+                            >Social Branding</span
+                        >
+                        <h3
+                            class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5"
+                        >
+                            Social Media Posts
+                        </h3>
+                        <p
+                            class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5"
+                        >
+                            A dynamic and eye-catching social banner layout
+                            designed to improve brand communication and online
+                            engagement.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link"
+                            >Inquire About Branding <i
+                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                            ></i></a
+                        >
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
-                        <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE REEL COVER.png" alt="Instagram Reel Cover Showcase" >
+                <div
+                    class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal"
+                >
+                    <div
+                        class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100"
+                    >
+                        <img
+                            class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105"
+                            src="/img/THE VISUAL HIVE REEL COVER.png"
+                            alt="Instagram Reel Cover Showcase"
+                        />
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
-                        <span class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2">Video Graphics</span>
-                        <h3 class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5">Instagram Reel Cover</h3>
-                        <p class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5">Polished thumbnail composition designed with bold typography to
-                            enhance CTR and aesthetic branding.</p>
-                        <a href="#contact" class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link">Inquire About Branding <i
-                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i></a>
+                        <span
+                            class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2"
+                            >Video Graphics</span
+                        >
+                        <h3
+                            class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5"
+                        >
+                            Instagram Reel Cover
+                        </h3>
+                        <p
+                            class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5"
+                        >
+                            Polished thumbnail composition designed with bold
+                            typography to enhance CTR and aesthetic branding.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link"
+                            >Inquire About Branding <i
+                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                            ></i></a
+                        >
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
-                        <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/THE VISUAL HIVE BILL.png" alt="Brand Invoice Design Showcase" >
+                <div
+                    class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal"
+                >
+                    <div
+                        class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100"
+                    >
+                        <img
+                            class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105"
+                            src="/img/THE VISUAL HIVE BILL.png"
+                            alt="Brand Invoice Design Showcase"
+                        />
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
-                        <span class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2">Stationery Design</span>
-                        <h3 class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5">Brand Invoice Design</h3>
-                        <p class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5">A professional and structured billing invoice layout, ensuring clean
-                            typography and authoritative brand presentation.</p>
-                        <a href="#contact" class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link">Inquire About Branding <i
-                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i></a>
+                        <span
+                            class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2"
+                            >Stationery Design</span
+                        >
+                        <h3
+                            class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5"
+                        >
+                            Brand Invoice Design
+                        </h3>
+                        <p
+                            class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5"
+                        >
+                            A professional and structured billing invoice
+                            layout, ensuring clean typography and authoritative
+                            brand presentation.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link"
+                            >Inquire About Branding <i
+                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                            ></i></a
+                        >
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal">
-                    <div class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100">
-                        <img class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105" src="/img/Independence Day from The Visual Hive.png" alt="Independence Day Design Campaign" >
+                <div
+                    class="group/card bg-white clip-chamfer-card overflow-hidden shadow-md transition-smooth flex flex-col hover:-translate-y-2 hover:shadow-honey-glow hover: reveal"
+                >
+                    <div
+                        class="bg-slate-50 h-[280px] flex items-center justify-center p-5 overflow-hidden relative clip-chamfer-card transition-smooth group-hover/card:bg-slate-100"
+                    >
+                        <img
+                            class="max-w-full max-h-full object-contain transition-smooth group-hover/card:scale-105"
+                            src="/img/Independence Day from The Visual Hive.png"
+                            alt="Independence Day Design Campaign"
+                        />
                     </div>
                     <div class="p-7 flex flex-col flex-grow">
-                        <span class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2">Social Media Branding</span>
-                        <h3 class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5">Festive Campaign Design</h3>
-                        <p class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5">Vibrant and high-impact Independence Day greeting poster tailored for
-                            social media engagement and identity building.</p>
-                        <a href="#contact" class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link">Inquire About Branding <i
-                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i></a>
+                        <span
+                            class="text-[0.75rem] font-bold text-amber-600 uppercase tracking-[0.08em] mb-2"
+                            >Social Media Branding</span
+                        >
+                        <h3
+                            class="text-[1.25rem] font-extrabold text-slate-900 mb-2.5"
+                        >
+                            Festive Campaign Design
+                        </h3>
+                        <p
+                            class="text-[0.95rem] text-slate-600 leading-[1.6] mb-5"
+                        >
+                            Vibrant and high-impact Independence Day greeting
+                            poster tailored for social media engagement and
+                            identity building.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="text-[0.9rem] font-bold text-slate-900 inline-flex items-center gap-1.5 mt-auto group/link"
+                            >Inquire About Branding <i
+                                class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                            ></i></a
+                        >
                     </div>
                 </div>
             </div>
@@ -504,150 +1198,467 @@ import Layout from '../layouts/Layout.astro';
     <section id="clients" class="py-[120px] lg:py-[90px] relative">
         <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full">
             <div class="text-center max-w-[680px] mx-auto mb-16 reveal">
-                <span class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3">Our Clients</span>
-                <h2 class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5">Trusted By</h2>
-                <p class="text-[1.1rem] text-slate-600 leading-relaxed">We collaborate with ambitious brands to create impactful visual identities.</p>
+                <span
+                    class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3"
+                    >Our Clients</span
+                >
+                <h2
+                    class="text-[2rem] sm:text-[2.5rem] font-extrabold tracking-tight text-slate-900 mb-5"
+                >
+                    Trusted By
+                </h2>
+                <p class="text-[1.1rem] text-slate-600 leading-relaxed">
+                    We collaborate with ambitious brands to create impactful
+                    visual identities.
+                </p>
             </div>
         </div>
-        <div class="overflow-hidden whitespace-nowrap relative py-10 flex items-center border-t border-border-color bg-white">
-            <div class="inline-flex items-center gap-20 animate-scroll-clients pr-20">
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ACCUSUDDH LOGO .jpg" alt="Accusuddh" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ARUCOZ LOGO.jpeg" alt="Arucoz" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/NZKW LOGO.png" alt="N Zayan Kids Wear" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/N ZARIN COLLECTION LOGO 2.png" alt="N Zarin Collection" style="height: 120px;" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/A SAFA GARMENTS LOGO.png" alt="A Safa Garments" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ZUBIZI LOGO.png" alt="Zubizi" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/PINE ORANGE LOGO.png" alt="Pine Orange" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ZOCURA LOGO.png" alt="Zocura" >
+        <div
+            class="overflow-hidden whitespace-nowrap relative py-10 flex items-center border-t border-border-color bg-white"
+        >
+            <div
+                class="inline-flex items-center gap-20 animate-scroll-clients pr-20"
+            >
+                <a
+                    href="file:///home/rifat-zayan/Desktop/AccuSuddh/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ACCUSUDDH LOGO .jpg"
+                        alt="Accusuddh"
+                    /></a
+                >
+                <a
+                    href="https://arucoz.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ARUCOZ LOGO.jpeg"
+                        alt="Arucoz"
+                    /></a
+                >
+                <img
+                    class="h-[60px] w-auto object-contain transition-smooth hover:scale-105 shrink-0"
+                    src="/img/NZKW LOGO.png"
+                    alt="N Zayan Kids Wear"
+                />
+                <img
+                    class="h-[60px] w-auto object-contain transition-smooth hover:scale-105 shrink-0"
+                    src="/img/NZARINCOLLECTIONLOGO.png"
+                    alt="N Zarin Collection"
+                />
+                <img
+                    class="h-[60px] w-auto object-contain transition-smooth hover:scale-105 shrink-0"
+                    src="/img/A SAFA GARMENTS LOGO.png"
+                    alt="A Safa Garments"
+                />
+                <a
+                    href="https://zubizi.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ZUBIZI LOGO.png"
+                        alt="Zubizi"
+                    /></a
+                >
+                <a
+                    href="https://pineorange.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/PINE ORANGE LOGO.png"
+                        alt="Pine Orange"
+                    /></a
+                >
+                <a
+                    href="https://zocura.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[40px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ZOCURA LOGO.png"
+                        alt="Zocura"
+                    /></a
+                >
                 <!-- Duplicate for seamless scroll -->
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ACCUSUDDH LOGO .jpg" alt="Accusuddh" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ARUCOZ LOGO.jpeg" alt="Arucoz" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/NZKW LOGO.png" alt="N Zayan Kids Wear" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/N ZARIN COLLECTION LOGO 2.png" alt="N Zarin Collection" style="height: 120px;" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/A SAFA GARMENTS LOGO.png" alt="A Safa Garments" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ZUBIZI LOGO.png" alt="Zubizi" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/PINE ORANGE LOGO.png" alt="Pine Orange" >
-                <img class="h-[60px] w-auto object-contain transition-smooth hover:scale-105" src="/img/ZOCURA LOGO.png" alt="Zocura" >
+                <a
+                    href="https://accusuddh.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ACCUSUDDH LOGO .jpg"
+                        alt="Accusuddh"
+                    /></a
+                >
+                <a
+                    href="https://arucoz.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ARUCOZ LOGO.jpeg"
+                        alt="Arucoz"
+                    /></a
+                >
+                <img
+                    class="h-[60px] w-auto object-contain transition-smooth hover:scale-105 shrink-0"
+                    src="/img/NZKW LOGO.png"
+                    alt="N Zayan Kids Wear"
+                />
+                <img
+                    class="h-[60px] w-auto object-contain transition-smooth hover:scale-105 shrink-0"
+                    src="/img/NZARINCOLLECTIONLOGO.png"
+                    alt="N Zarin Collection"
+                />
+                <img
+                    class="h-[60px] w-auto object-contain transition-smooth hover:scale-105 shrink-0"
+                    src="/img/A SAFA GARMENTS LOGO.png"
+                    alt="A Safa Garments"
+                />
+                <a
+                    href="https://zubizi.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ZUBIZI LOGO.png"
+                        alt="Zubizi"
+                    /></a
+                >
+                <a
+                    href="https://pineorange.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[60px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/PINE ORANGE LOGO.png"
+                        alt="Pine Orange"
+                    /></a
+                >
+                <a
+                    href="https://zocura.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center shrink-0"
+                    ><img
+                        class="h-[40px] w-auto object-contain transition-smooth hover:scale-105"
+                        src="/img/ZOCURA LOGO.png"
+                        alt="Zocura"
+                    /></a
+                >
             </div>
         </div>
-        <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full" style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
-            <p style="font-size: 0.95rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px;" class="reveal">The Visual Hive is a Brand of Pine Orange Pvt.Ltd.</p>
+        <div
+            class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full"
+            style="text-align: center; margin-top: 40px; margin-bottom: 20px;"
+        >
+            <p
+                style="font-size: 0.95rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px;"
+                class="reveal"
+            >
+                The Visual Hive is a Brand of Pine Orange Pvt.Ltd.
+            </p>
         </div>
     </section>
 
     <!-- Contact & Creative Process Section -->
     <section id="contact" class="py-[120px] lg:py-[90px] relative">
-        <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-[50px] lg:gap-16 items-start">
+        <div
+            class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-[50px] lg:gap-16 items-start"
+        >
             <!-- Process steps on left -->
             <div class="flex flex-col reveal">
-                <span class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3">Let's Connect</span>
-                <h3 class="text-[1.8rem] font-extrabold text-slate-900 mb-[18px] tracking-[-0.02em]">Build your brand's future</h3>
-                <p class="text-[1.05rem] text-slate-600 mb-10 leading-[1.7]">Tell us about your visual design requirements, and we'll partner with you to turn your
-                    ideas into a high-end identity.</p>
+                <span
+                    class="inline-block text-[0.8rem] font-bold uppercase tracking-[0.15em] text-amber-600 mb-3"
+                    >Let's Connect</span
+                >
+                <h3
+                    class="text-[1.8rem] font-extrabold text-slate-900 mb-[18px] tracking-[-0.02em]"
+                >
+                    Build your brand's future
+                </h3>
+                <p class="text-[1.05rem] text-slate-600 mb-10 leading-[1.7]">
+                    Tell us about your visual design requirements, and we'll
+                    partner with you to turn your ideas into a high-end
+                    identity.
+                </p>
 
                 <div class="flex flex-col gap-9 mb-12">
-                    <div class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden">
-                        <div class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]">01</div>
+                    <div
+                        class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden"
+                    >
+                        <div
+                            class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]"
+                        >
+                            01
+                        </div>
                         <div class="pt-[6px]">
-                            <h5 class="text-[1.1rem] font-bold text-slate-900 mb-1.5">Discovery & Briefing</h5>
-                            <p class="text-[0.95rem] text-slate-600 leading-[1.6]">We discuss your core market niche, design aspirations, and
-                                structural requirements.</p>
+                            <h5
+                                class="text-[1.1rem] font-bold text-slate-900 mb-1.5"
+                            >
+                                Discovery & Briefing
+                            </h5>
+                            <p
+                                class="text-[0.95rem] text-slate-600 leading-[1.6]"
+                            >
+                                We discuss your core market niche, design
+                                aspirations, and structural requirements.
+                            </p>
                         </div>
                     </div>
-                    <div class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden">
-                        <div class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]">02</div>
+                    <div
+                        class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden"
+                    >
+                        <div
+                            class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]"
+                        >
+                            02
+                        </div>
                         <div class="pt-[6px]">
-                            <h5 class="text-[1.1rem] font-bold text-slate-900 mb-1.5">Concept Exploration</h5>
-                            <p class="text-[0.95rem] text-slate-600 leading-[1.6]">Our team crafts creative draft proposals and initial aesthetic
-                                design directions.</p>
+                            <h5
+                                class="text-[1.1rem] font-bold text-slate-900 mb-1.5"
+                            >
+                                Concept Exploration
+                            </h5>
+                            <p
+                                class="text-[0.95rem] text-slate-600 leading-[1.6]"
+                            >
+                                Our team crafts creative draft proposals and
+                                initial aesthetic design directions.
+                            </p>
                         </div>
                     </div>
-                    <div class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden">
-                        <div class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]">03</div>
+                    <div
+                        class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden"
+                    >
+                        <div
+                            class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]"
+                        >
+                            03
+                        </div>
                         <div class="pt-[6px]">
-                            <h5 class="text-[1.1rem] font-bold text-slate-900 mb-1.5">Iterative Refinement</h5>
-                            <p class="text-[0.95rem] text-slate-600 leading-[1.6]">We collaborate and perfect details based on your feedback and
-                                requirements.</p>
+                            <h5
+                                class="text-[1.1rem] font-bold text-slate-900 mb-1.5"
+                            >
+                                Iterative Refinement
+                            </h5>
+                            <p
+                                class="text-[0.95rem] text-slate-600 leading-[1.6]"
+                            >
+                                We collaborate and perfect details based on your
+                                feedback and requirements.
+                            </p>
                         </div>
                     </div>
-                    <div class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden">
-                        <div class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]">04</div>
+                    <div
+                        class="flex gap-5 relative before:content-[''] before:absolute before:left-[20px] before:top-[44px] before:-bottom-6 before:w-[2px] before:bg-border-color last:before:hidden"
+                    >
+                        <div
+                            class="w-[42px] h-[42px] clip-hex bg-accent-gradient text-white flex items-center justify-center font-bold text-[0.9rem] shrink-0 shadow-[0_4px_12px_rgba(217,119,6,0.2)]"
+                        >
+                            04
+                        </div>
                         <div class="pt-[6px]">
-                            <h5 class="text-[1.1rem] font-bold text-slate-900 mb-1.5">Delivery & Hand-off</h5>
-                            <p class="text-[0.95rem] text-slate-600 leading-[1.6]">You receive production-grade vector file outputs, print templates,
-                                and logo guide files.</p>
+                            <h5
+                                class="text-[1.1rem] font-bold text-slate-900 mb-1.5"
+                            >
+                                Delivery & Hand-off
+                            </h5>
+                            <p
+                                class="text-[0.95rem] text-slate-600 leading-[1.6]"
+                            >
+                                You receive production-grade vector file
+                                outputs, print templates, and logo guide files.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Direct links to mail / contact -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <a href="mailto:thevisualhivedesigns@gmail.com" class="bg-white p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover: hover:-translate-y-1 hover:shadow-md">
-                        <div class="w-[44px] h-[44px] clip-hex bg-slate-100 text-amber-600 grid place-items-center text-[1.1rem] shrink-0"><i class="fas fa-envelope"></i></div>
+                    <a
+                        href="mailto:tvisualhive@gmail.com"
+                        class="bg-white p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover: hover:-translate-y-1 hover:shadow-md"
+                    >
+                        <div
+                            class="w-[44px] h-[44px] clip-hex bg-slate-100 text-amber-600 grid place-items-center text-[1.1rem] shrink-0"
+                        >
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div class="flex flex-col overflow-hidden">
-                            <span class="text-[0.75rem] font-bold text-slate-600 uppercase tracking-[0.05em]">Email</span>
-                            <span class="text-[0.9rem] font-semibold text-slate-900 overflow-hidden text-ellipsis whitespace-nowrap">thevisualhivedesigns@gmail.com</span>
+                            <span
+                                class="text-[0.75rem] font-bold text-slate-600 uppercase tracking-[0.05em]"
+                                >Email</span
+                            >
+                            <span
+                                class="text-[0.9rem] font-semibold text-slate-900 overflow-hidden text-ellipsis whitespace-nowrap"
+                                >tvisualhive@gmail.com</span
+                            >
                         </div>
                     </a>
-                    <a href="https://instagram.com/thevisuallhive" target="_blank" rel="noopener noreferrer"
-                        class="bg-white p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover: hover:-translate-y-1 hover:shadow-md">
-                        <div class="w-[44px] h-[44px] clip-hex bg-slate-100 text-amber-600 grid place-items-center text-[1.1rem] shrink-0"><i class="fas fa-phone-alt"></i></div>
+                    <a
+                        href="https://instagram.com/thevisuallhive"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-white p-6 clip-chamfer-card flex hover:shadow-honey-glow items-center gap-4 shadow-sm transition-smooth hover: hover:-translate-y-1 hover:shadow-md"
+                    >
+                        <div
+                            class="w-[44px] h-[44px] clip-hex bg-slate-100 text-amber-600 grid place-items-center text-[1.1rem] shrink-0"
+                        >
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
                         <div class="flex flex-col overflow-hidden">
-                            <span class="text-[0.75rem] font-bold text-slate-600 uppercase tracking-[0.05em]">Contact</span>
-                            <span class="text-[0.9rem] font-semibold text-slate-900 overflow-hidden text-ellipsis whitespace-nowrap">+91 9339161883</span>
+                            <span
+                                class="text-[0.75rem] font-bold text-slate-600 uppercase tracking-[0.05em]"
+                                >Contact</span
+                            >
+                            <span
+                                class="text-[0.9rem] font-semibold text-slate-900 overflow-hidden text-ellipsis whitespace-nowrap"
+                                >+91 9339161883</span
+                            >
                         </div>
                     </a>
                 </div>
             </div>
 
             <!-- Contact Form on right -->
-            <div class="bg-white clip-chamfer-card p-8 md:p-12 shadow-lg reveal">
-                <h4 class="text-[1.4rem] font-extrabold mb-6 text-slate-900">Start a Project Conversation</h4>
+            <div
+                class="bg-white clip-chamfer-card p-8 md:p-12 shadow-lg reveal"
+            >
+                <h4 class="text-[1.4rem] font-extrabold mb-6 text-slate-900">
+                    Start a Project Conversation
+                </h4>
                 <form id="inquiry-form">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New inquiry from The Visual Hive website">
-                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New inquiry from The Visual Hive website"
+                    />
+                    <input type="hidden" name="_template" value="table" />
                     <div class="mb-6">
-                        <label for="name" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Your Full Name</label>
-                        <input type="text" id="name" name="name" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow" placeholder="John Doe" required>
+                        <label
+                            for="name"
+                            class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]"
+                            >Your Full Name</label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow"
+                            placeholder="John Doe"
+                            required
+                        />
                     </div>
                     <div class="mb-6">
-                        <label for="email" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Your Email Address</label>
-                        <input type="email" id="email" name="email" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow" placeholder="john@example.com"
-                            required>
+                        <label
+                            for="email"
+                            class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]"
+                            >Your Email Address</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow"
+                            placeholder="john@example.com"
+                            required
+                        />
                     </div>
                     <div class="mb-6">
-                        <label for="mobile" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Your Mobile Number</label>
-                        <input type="tel" id="mobile" name="mobile" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow" placeholder="+XX XXXXX XXXXX"
-                            required>
+                        <label
+                            for="mobile"
+                            class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]"
+                            >Your Mobile Number</label
+                        >
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow"
+                            placeholder="+XX XXXXX XXXXX"
+                            required
+                        />
                     </div>
                     <div class="mb-6">
-                        <label for="description" class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]">Project Details</label>
-                        <textarea class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow min-h-[150px] resize-y" id="description" name="description" class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow"
-                            placeholder="Briefly describe your design needs..." required></textarea>
+                        <label
+                            for="description"
+                            class="block text-[0.85rem] font-bold text-slate-900 mb-2 uppercase tracking-[0.05em]"
+                            >Project Details</label
+                        >
+                        <textarea
+                            class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow min-h-[150px] resize-y"
+                            id="description"
+                            name="description"
+                            class="w-full py-4 px-5 bg-slate-100 clip-chamfer-sm text-slate-900 text-[0.95rem] font-medium transition-smooth focus:outline-none focus:bg-white focus: focus:shadow-glow"
+                            placeholder="Briefly describe your design needs..."
+                            required></textarea>
                     </div>
-                    <button type="submit" class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-amber-600 text-white hover:shadow-honey-glow hover:-translate-y-0.5 group/link">
-                        <span>Send Inquiry</span> <i class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"></i>
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center gap-[10px] py-4 px-8 clip-chamfer font-bold text-[0.95rem] transition-smooth cursor-pointer bg-amber-600 text-white hover:shadow-honey-glow hover:-translate-y-0.5 group/link"
+                    >
+                        <span>Send Inquiry</span>
+                        <i
+                            class="fas fa-arrow-right transition-transform duration-200 group-hover/link:translate-x-1"
+                        ></i>
                     </button>
-                    <p class="mt-4 text-[0.95rem] font-semibold text-amber-600 min-h-[24px]" id="form-status" aria-live="polite"></p>
+                    <p
+                        class="mt-4 text-[0.95rem] font-semibold text-amber-600 min-h-[24px]"
+                        id="form-status"
+                        aria-live="polite"
+                    >
+                    </p>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Social Links Block -->
-    <div class="border-t border-border-color py-[60px] flex justify-center items-center bg-slate-100">
+    <div
+        class="border-t border-border-color py-[60px] flex justify-center items-center bg-slate-100"
+    >
         <div class="flex gap-5 reveal">
-            <a href="https://instagram.com/thevisuallhive" target="_blank" class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
-                aria-label="Instagram" rel="noopener noreferrer">
+            <a
+                href="https://instagram.com/thevisuallhive"
+                target="_blank"
+                class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
+                aria-label="Instagram"
+                rel="noopener noreferrer"
+            >
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61590531748679" target="_blank" class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
-                aria-label="Facebook" rel="noopener noreferrer">
+            <a
+                href="https://www.facebook.com/profile.php?id=61590531748679"
+                target="_blank"
+                class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
+                aria-label="Facebook"
+                rel="noopener noreferrer"
+            >
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://youtube.com/@thevisualhive" target="_blank" class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]" aria-label="YouTube"
-                rel="noopener noreferrer">
+            <a
+                href="https://youtube.com/@thevisualhive"
+                target="_blank"
+                class="w-14 h-14 clip-hex bg-white text-slate-900 grid place-items-center text-[1.25rem] shadow-sm transition-smooth hover:-translate-y-1.5 hover:bg-accent-gradient hover:text-white hover: hover:shadow-[0_8px_24px_rgba(217,119,6,0.25)]"
+                aria-label="YouTube"
+                rel="noopener noreferrer"
+            >
                 <i class="fab fa-youtube"></i>
             </a>
         </div>
@@ -656,114 +1667,132 @@ import Layout from '../layouts/Layout.astro';
     <!-- Footer -->
     <footer class="bg-white border-t border-border-color py-10 text-center">
         <div class="max-w-[1280px] mx-auto px-5 xl:px-10 w-full">
-            <p class="text-[0.95rem] text-slate-600 font-medium">&copy; 2026 The Visual Hive. All rights reserved. Crafting premium visual stories worldwide.</p>
+            <p class="text-[0.95rem] text-slate-600 font-medium">
+                &copy; 2026 The Visual Hive. All rights reserved. Crafting
+                premium visual stories worldwide.
+            </p>
         </div>
     </footer>
 
     <!-- JavaScript Script for Interactions -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener("DOMContentLoaded", () => {
             // Sticky Header behavior
-            const header = document.getElementById('site-header');
-            window.addEventListener('scroll', () => {
+            const header = document.getElementById("site-header");
+            window.addEventListener("scroll", () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    header.classList.add("scrolled");
                 } else {
-                    header.classList.remove('scrolled');
+                    header.classList.remove("scrolled");
                 }
             });
 
             // Mobile Menu Drawer functionality
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileDrawer = document.getElementById('mobile-drawer');
-            const menuOverlay = document.getElementById('menu-overlay');
+            const menuToggle = document.getElementById("menu-toggle");
+            const mobileDrawer = document.getElementById("mobile-drawer");
+            const menuOverlay = document.getElementById("menu-overlay");
 
             const toggleMenu = () => {
-                menuToggle.classList.toggle('open');
-                mobileDrawer.classList.toggle('open');
-                menuOverlay.classList.toggle('open');
-                document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
+                menuToggle.classList.toggle("open");
+                mobileDrawer.classList.toggle("open");
+                menuOverlay.classList.toggle("open");
+                document.body.style.overflow = mobileDrawer.classList.contains(
+                    "open",
+                )
+                    ? "hidden"
+                    : "";
             };
 
-            menuToggle.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', toggleMenu);
+            menuToggle.addEventListener("click", toggleMenu);
+            menuOverlay.addEventListener("click", toggleMenu);
 
             // Close mobile drawer when link clicked
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (mobileDrawer.classList.contains('open')) {
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    if (mobileDrawer.classList.contains("open")) {
                         toggleMenu();
                     }
                 });
             });
 
             // Intersection Observer for scroll animations
-            const revealElements = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // Animation runs once
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
+            const revealElements = document.querySelectorAll(".reveal");
+            const revealObserver = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                            observer.unobserve(entry.target); // Animation runs once
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                },
+            );
 
-            revealElements.forEach(element => {
+            revealElements.forEach((element) => {
                 revealObserver.observe(element);
             });
 
-            const inquiryForm = document.getElementById('inquiry-form');
-            const formStatus = document.getElementById('form-status');
+            const inquiryForm = document.getElementById("inquiry-form");
+            const formStatus = document.getElementById("form-status");
 
             if (inquiryForm && formStatus) {
-                inquiryForm.addEventListener('submit', async (event) => {
+                inquiryForm.addEventListener("submit", async (event) => {
                     event.preventDefault();
-                    formStatus.textContent = 'Sending your inquiry...';
-                    formStatus.classList.remove('error');
+                    formStatus.textContent = "Sending your inquiry...";
+                    formStatus.classList.remove("error");
 
                     const formData = new FormData(inquiryForm);
-                    formData.append('_cc', 'zayan.molla.online@gmail.com');
+                    formData.append("_cc", "zayan.molla.online@gmail.com");
 
                     try {
-                        const response = await fetch('https://formsubmit.co/ajax/thevisualhivedesigns@gmail.com', {
-                            method: 'POST',
-                            body: formData,
-                            headers: { 'Accept': 'application/json' }
-                        });
+                        const response = await fetch(
+                            "https://formsubmit.co/ajax/tvisualhive@gmail.com",
+                            {
+                                method: "POST",
+                                body: formData,
+                                headers: { Accept: "application/json" },
+                            },
+                        );
 
                         if (!response.ok) {
-                            throw new Error('Unable to send inquiry');
+                            throw new Error("Unable to send inquiry");
                         }
 
                         inquiryForm.reset();
-                        formStatus.textContent = 'Thanks! Your inquiry has been sent successfully.';
+                        formStatus.textContent =
+                            "Thanks! Your inquiry has been sent successfully.";
                     } catch (error) {
-                        formStatus.textContent = 'Something went wrong. Please email us directly at thevisualhivedesigns@gmail.com.';
-                        formStatus.classList.add('error');
+                        formStatus.textContent =
+                            "Something went wrong. Please email us directly at tvisualhive@gmail.com.";
+                        formStatus.classList.add("error");
                     }
                 });
             }
 
             // Active link highlighting on scroll
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll(".nav-link");
+            const sections = document.querySelectorAll("section[id]");
 
             const highlightNav = () => {
                 let scrollY = window.pageYOffset;
-                sections.forEach(current => {
+                sections.forEach((current) => {
                     const sectionHeight = current.offsetHeight;
                     const sectionTop = current.offsetTop - 120;
-                    const sectionId = current.getAttribute('id');
+                    const sectionId = current.getAttribute("id");
 
-                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active-link');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active-link');
+                    if (
+                        scrollY > sectionTop &&
+                        scrollY <= sectionTop + sectionHeight
+                    ) {
+                        navLinks.forEach((link) => {
+                            link.classList.remove("active-link");
+                            if (link.getAttribute("href") === "#" + sectionId) {
+                                link.classList.add("active-link");
                             }
                         });
                     }
@@ -771,14 +1800,14 @@ import Layout from '../layouts/Layout.astro';
 
                 // Highlight Home if scrolled to top
                 if (scrollY < 100) {
-                    navLinks.forEach(link => link.classList.remove('active-link'));
-                    navLinks[0].classList.add('active-link');
+                    navLinks.forEach((link) =>
+                        link.classList.remove("active-link"),
+                    );
+                    navLinks[0].classList.add("active-link");
                 }
             };
 
-            window.addEventListener('scroll', highlightNav);
+            window.addEventListener("scroll", highlightNav);
         });
     </script>
-
-
 </Layout>

@@ -3,7 +3,8 @@
 @theme {
   --font-main: 'Plus Jakarta Sans', sans-serif;
   
-  --animate-text-slide: text-slide 10s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+  --animate-text-slide: text-slide 6s linear infinite;
+  --animate-blink: blink 1s step-end infinite;
   --animate-pulse-blob: pulse-blob 8s infinite alternate;
   --animate-scroll-marquee: scroll-marquee 25s linear infinite;
   --animate-scroll-clients: scroll-clients 30s linear infinite;
@@ -13,11 +14,13 @@
 }
 
 @keyframes text-slide {
-  0%, 20% { transform: translateY(0); }
-  25%, 45% { transform: translateY(-20%); }
-  50%, 70% { transform: translateY(-40%); }
-  75%, 95% { transform: translateY(-60%); }
+  0% { transform: translateY(0); }
   100% { transform: translateY(-80%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 @keyframes pulse-blob {
